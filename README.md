@@ -25,7 +25,18 @@ aucun service, pas de `sudo`.
   ```
   (le widget `disk` l'installe automatiquement.)
 
-## Installation rapide (les 3)
+## Installation rapide (les 3 d'un coup)
+
+```bash
+cd ~/Documents/dev/widgets
+./install-all.sh              # SANS sudo — il appelle sudo lui-même pour le disque
+```
+
+`install-all.sh` installe et lance les 3 widgets (il ne demande le mot de passe
+`sudo` que pour le widget disque). 
+
+<details>
+<summary>Ou bien, manuellement, widget par widget</summary>
 
 ```bash
 cd ~/Documents/dev/widgets
@@ -39,6 +50,7 @@ conky -c ~/.config/conky/disk-widget.conf &
 conky -c ~/.config/conky/cpu-widget.conf &
 conky -c ~/.config/conky/ps-widget.conf &
 ```
+</details>
 
 Chaque widget redémarre ensuite automatiquement à la connexion (autostart).
 Positions par défaut : `disk` en haut-droit, `cpu` au milieu-droit, `ps` en
