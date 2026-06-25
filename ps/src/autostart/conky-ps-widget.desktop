@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Widget memoire (Conky)
+Comment=Affiche la consommation memoire (RAM/swap) sur le bureau
+Exec=conky -c /home/sikander/.config/conky/ps-widget.conf
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=10
+Terminal=false
+NoDisplay=false

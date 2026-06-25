@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Widget processeur (Conky)
+Comment=Affiche la consommation CPU sur le bureau
+Exec=conky -c /home/sikander/.config/conky/cpu-widget.conf
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=10
+Terminal=false
+NoDisplay=false

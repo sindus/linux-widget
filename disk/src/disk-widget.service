@@ -1,0 +1,9 @@
+[Unit]
+Description=Collecte des donnees du widget disque
+After=local-fs.target
+
+[Service]
+Type=oneshot
+Nice=19
+IOSchedulingClass=idle
+ExecStart=/usr/local/bin/disk-widget-collect.sh

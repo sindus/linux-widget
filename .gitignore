@@ -1,0 +1,7 @@
+# Éditeurs / OS
+*.swp
+*~
+.DS_Store
+
+# Données runtime générées localement (jamais versionnées)
+/**/.config/
