@@ -57,6 +57,63 @@ Positions par défaut : `disk` en haut-droit, `cpu` au milieu-droit, `ps` en
 bas-droit, pour ne pas se chevaucher. Voir le `README.md` de chaque dossier pour
 les réglages (position, transparence, fréquence).
 
+## Déplacer un widget sur le bureau
+
+Les widgets se positionnent **par configuration** (Conky n'a pas de glisser-déposer).
+Tout se règle dans le fichier `.conf` du widget, dans le bloc `conky.config` :
+
+```lua
+alignment = 'top_right',   -- coin / bord d'ancrage
+gap_x = 28,                -- décalage horizontal depuis ce coin (px, vers l'intérieur)
+gap_y = 48,                -- décalage vertical depuis ce coin (px, vers l'intérieur)
+```
+
+Fichiers concernés :
+
+| Widget | Fichier |
+|--------|---------|
+| Disque | `~/.config/conky/disk-widget.conf` |
+| CPU    | `~/.config/conky/cpu-widget.conf` |
+| Mémoire| `~/.config/conky/ps-widget.conf` |
+
+**Valeurs possibles pour `alignment`** :
+`top_left`, `top_middle`, `top_right`,
+`middle_left`, `middle_middle`, `middle_right`,
+`bottom_left`, `bottom_middle`, `bottom_right`.
+
+`gap_x` / `gap_y` = distance en pixels depuis le coin choisi, vers l'intérieur de
+l'écran. Exemple — coller le widget disque en haut-à-gauche, légèrement décalé :
+
+```lua
+alignment = 'top_left',
+gap_x = 40,
+gap_y = 60,
+```
+
+**Appliquer le changement** : Conky lit sa config au démarrage, il faut donc le
+relancer. Pour un seul widget :
+
+```bash
+pkill -f "conky -c .*disk-widget.conf"
+conky -c ~/.config/conky/disk-widget.conf &
+```
+
+Pour les trois d'un coup :
+
+```bash
+pkill conky
+conky -c ~/.config/conky/disk-widget.conf &
+conky -c ~/.config/conky/cpu-widget.conf &
+conky -c ~/.config/conky/ps-widget.conf &
+```
+
+> Astuce : lance un widget **sans le `&`** dans un terminal pour voir les erreurs
+> et affiner `gap_x`/`gap_y` rapidement (Ctrl+C pour l'arrêter, ré-édite, relance).
+>
+> Tu édites ici la config **installée** (`~/.config/conky/…`). Pour figer ta
+> disposition dans le dépôt, reporte les mêmes valeurs dans le `src/conky/*.conf`
+> du widget concerné.
+
 ## Désinstallation
 
 ```bash
